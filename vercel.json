@@ -1,5 +1,12 @@
 {
   "outputDirectory": "public",
   "trailingSlash": false,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/4",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 }
