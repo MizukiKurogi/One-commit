@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Commit</title>
     <meta name="description" content="世界ランカー監修のオンラインボディメイクサロン。LINE登録で1週間の無料特典付き。">
-    <meta name="keywords" content="オンラインサロン, 筋トレ, ダイエット, 宮崎, ボディメイク, パーソナルトレーニング">
+    <meta name="keywords" content="オンラインサロン, 筋トレ, ダイエット, 健康, ボディメイク, パーソナルトレーニング">
     <meta property="og:title" content="One Commit - あなたを変える、たった一つの習慣" />
     <meta property="og:description" content="筋トレ・ダイエットに特化したパーソナルオンラインサロン。世界ランカー講師による個別サポート！" />
-    <meta property="og:image" content="https://one-commit.vercel.app/images/hero_frame1.jpg" />
+    <meta property="og:image" content="https://one-commit.vercel.app/images/hero_frame1.png" />
     <meta property="og:url" content="https://one-commit.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image">
@@ -32,10 +32,10 @@
           logo.classList.add('h-8');
           logo.classList.remove('h-12');
         } else {
-          header.classList.add('py-4');
           header.classList.remove('py-2');
-          logo.classList.add('h-12');
+          header.classList.add('py-4');
           logo.classList.remove('h-8');
+          logo.classList.add('h-12');
         }
       });
       
@@ -213,45 +213,48 @@
         .lazy-load.loaded {
             opacity: 1;
         }
+        @media (max-width: 768px) {
+            #main-header {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+            #logo {
+                height: 2rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 0.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+            .cta-button {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+            .section-spacing {
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white pt-20">
     <!-- ヘッダー -->
-    <header class="bg-gray-800 text-white sticky top-0 z-50 transition-all duration-300" role="banner">
-      <nav class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3" role="navigation" aria-label="メインナビゲーション">
-        <div class="text-xl font-bold">ONE COMMIT</div>
-        <div class="space-x-4 hidden md:flex">
-          <a href="#about" class="hover:text-blue-400" aria-label="講師紹介セクションへ">講師紹介</a>
-          <a href="#plans" class="hover:text-blue-400" aria-label="プランセクションへ">プラン</a>
-          <a href="#faq" class="hover:text-blue-400" aria-label="FAQセクションへ">FAQ</a>
-          <a href="#contact" class="hover:text-blue-400" aria-label="無料相談セクションへ">無料相談</a>
-          <a href="/tokushoho.html" class="hover:text-blue-400" aria-label="特定商取引法に基づく表記へ">特商法</a>
-          <a href="/privacy.html" class="hover:text-blue-400" aria-label="プライバシーポリシーへ">プライバシー</a>
-          <a href="/terms.html" class="hover:text-blue-400" aria-label="利用規約へ">利用規約</a>
-        </div>
-        <div class="md:hidden">
-          <button id="menu-toggle" class="text-white focus:outline-none">☰</button>
-        </div>
-      </nav>
-      <div id="mobile-menu" class="hidden bg-gray-800 px-4 pb-4 md:hidden">
-        <a href="#about" class="block py-2 hover:text-blue-400">講師紹介</a>
-        <a href="#plans" class="block py-2 hover:text-blue-400">プラン</a>
-        <a href="#faq" class="block py-2 hover:text-blue-400">FAQ</a>
-        <a href="#contact" class="block py-2 hover:text-blue-400">無料相談</a>
-        <a href="/tokushoho.html" class="block py-2 hover:text-blue-400">特商法</a>
-        <a href="/privacy.html" class="block py-2 hover:text-blue-400">プライバシー</a>
-        <a href="/terms.html" class="block py-2 hover:text-blue-400">利用規約</a>
+    <header id="main-header" class="bg-gray-800 py-2 px-4 md:py-4 md:px-6 shadow-md fixed w-full top-0 z-50">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <img src="/images/logo.jpg" alt="One Commit ロゴ" id="logo" class="h-8 md:h-12" />
+        <nav class="flex items-center">
+          <a href="https://line.me/ti/p/%40897qygw" class="text-white text-sm md:text-base hover:text-blue-400 transition bg-blue-600 px-3 py-1 md:px-4 md:py-2 rounded">無料相談してみる</a>
+        </nav>
       </div>
-      <script>
-        document.getElementById("menu-toggle").addEventListener("click", function () {
-          const menu = document.getElementById("mobile-menu");
-          menu.classList.toggle("hidden");
-        });
-      </script>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative w-full h-[500px] overflow-hidden" role="banner">
+    <section class="relative w-full h-[100vh] md:h-[500px] overflow-hidden pt-[3rem]">
         <div class="video-container">
             <video 
                 id="hero-video"
@@ -269,11 +272,9 @@
             </video>
         </div>
         <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
-            <h1 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg fade-in">
-                ONE COMMIT
-            </h1>
-            <p class="text-white mt-4 text-lg md:text-2xl fade-in">あなたを変える、たった一つの習慣</p>
-            <a href="#contact" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110 fade-in cta-glow" aria-label="無料相談を申し込む">
+            <h1 class="hero-title text-white text-3xl md:text-6xl font-bold drop-shadow-lg mb-2 md:mb-4">ONE COMMIT</h1>
+            <p class="hero-subtitle text-white text-base md:text-2xl mb-4 md:mb-6">あなたを変える、たった一つの習慣</p>
+            <a href="https://line.me/ti/p/%40897qygw" class="cta-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110 text-sm md:text-base">
                 無料相談してみる
             </a>
         </div>
