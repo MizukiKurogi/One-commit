@@ -80,6 +80,7 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
         .hero-pattern {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
@@ -164,11 +165,59 @@
             box-shadow: 0 0 40px rgba(59, 130, 246, 1);
             transform: scale(1.05);
         }
+        /* モバイルでのタッチ操作の最適化 */
+        @media (max-width: 768px) {
+            button, a {
+                min-height: 44px;
+                min-width: 44px;
+                padding: 12px;
+            }
+            #mobile-menu a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+        /* 動画のレスポンシブ対応 */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                height: 300px;
+            }
+            .video-container video {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        /* パフォーマンス最適化 */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        .lazy-load.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white pt-20">
     <!-- ヘッダー -->
-    <header class="bg-gray-800 text-white sticky top-0 z-50" role="banner">
+    <header class="bg-gray-800 text-white sticky top-0 z-50 transition-all duration-300" role="banner">
       <nav class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3" role="navigation" aria-label="メインナビゲーション">
         <div class="text-xl font-bold">ONE COMMIT</div>
         <div class="space-x-4 hidden md:flex">
@@ -203,19 +252,21 @@
 
     <!-- Hero Section -->
     <section class="relative w-full h-[500px] overflow-hidden" role="banner">
-      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
-        <source src="/images/hero_sub.mp4" type="video/mp4" />
-        お使いのブラウザは video タグをサポートしていません。
-      </video>
-      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
-        <h1 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg fade-in">
-          ONE COMMIT
-        </h1>
-        <p class="text-white mt-4 text-lg md:text-2xl fade-in">あなたを変える、たった一つの習慣</p>
-        <a href="#contact" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110 fade-in cta-glow" aria-label="無料相談を申し込む">
-          無料相談してみる
-        </a>
-      </div>
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="lazy-load" aria-hidden="true">
+                <source src="/images/hero_sub.mp4" type="video/mp4" />
+                お使いのブラウザは video タグをサポートしていません。
+            </video>
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
+            <h1 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg fade-in">
+                ONE COMMIT
+            </h1>
+            <p class="text-white mt-4 text-lg md:text-2xl fade-in">あなたを変える、たった一つの習慣</p>
+            <a href="#contact" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110 fade-in cta-glow" aria-label="無料相談を申し込む">
+                無料相談してみる
+            </a>
+        </div>
     </section>
 
     <!-- Hero Section Frame 2 -->
@@ -460,6 +511,69 @@
                     slidesPerView: 2
                 }
             }
+        });
+
+        // 遅延読み込みの実装
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyElements = document.querySelectorAll('.lazy-load');
+            
+            const lazyLoad = target => {
+                const io = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.classList.add('loaded');
+                            observer.disconnect();
+                        }
+                    });
+                });
+
+                io.observe(target);
+            };
+            
+            lazyElements.forEach(lazyLoad);
+        });
+
+        // モバイルメニューの改善
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.querySelector('header');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                mobileMenu.classList.toggle('hidden');
+                // メニューが開いているときはスクロールを無効化
+                document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden';
+            });
+
+            // メニュー項目クリック時の処理
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // 画面外クリックでメニューを閉じる
+            document.addEventListener('click', function(e) {
+                if (!header.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // ヘッダーのスクロール挙動改善
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
         });
     </script>
 </body>
