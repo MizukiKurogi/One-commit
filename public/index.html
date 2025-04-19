@@ -253,7 +253,17 @@
     <!-- Hero Section -->
     <section class="relative w-full h-[500px] overflow-hidden" role="banner">
         <div class="video-container">
-            <video autoplay muted loop playsinline class="lazy-load" aria-hidden="true">
+            <video 
+                id="hero-video"
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                preload="metadata"
+                poster="/images/hero_frame1.png"
+                class="lazy-load" 
+                aria-hidden="true"
+            >
                 <source src="/images/hero_sub.mp4" type="video/mp4" />
                 お使いのブラウザは video タグをサポートしていません。
             </video>
@@ -574,6 +584,51 @@
                 header.style.transform = 'translateY(0)';
             }
             lastScroll = currentScroll;
+        });
+
+        // 動画の最適化
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            
+            // 動画の読み込みを最適化
+            if (video) {
+                // ビューポート内に入った時に動画を再生
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video.play().catch(function(error) {
+                                console.log("Video play failed:", error);
+                            });
+                        } else {
+                            video.pause();
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(video);
+
+                // 低帯域幅の場合の処理
+                if (navigator.connection && navigator.connection.effectiveType === '2g') {
+                    video.preload = 'none';
+                    video.poster = '/images/hero_frame1.png';
+                }
+
+                // バックグラウンドタブでの動画一時停止
+                document.addEventListener('visibilitychange', function() {
+                    if (document.hidden) {
+                        video.pause();
+                    } else {
+                        video.play().catch(function(error) {
+                            console.log("Video play failed:", error);
+                        });
+                    }
+                });
+
+                // モバイルデバイスでの最適化
+                if (window.matchMedia('(max-width: 768px)').matches) {
+                    video.setAttribute('preload', 'none');
+                }
+            }
         });
     </script>
 </body>
