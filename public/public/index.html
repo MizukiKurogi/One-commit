@@ -1,1 +1,169 @@
- 
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Commit</title>
+    <meta name="description" content="世界ランカー監修のオンラインボディメイクサロン。LINE登録で1週間の無料特典付き。" />
+    <meta name="keywords" content="オンラインサロン, 筋トレ, ダイエット, 健康, ボディメイク, パーソナルトレーニング" />
+    <meta property="og:title" content="One Commit - あなたを変える、たった一つの習慣" />
+    <meta property="og:description" content="筋トレ・ダイエットに特化したパーソナルオンラインサロン。世界ランカー講師による個別サポート！" />
+    <meta property="og:image" content="https://one-commit.vercel.app/images/hero_og.jpg" />
+    <meta property="og:url" content="https://one-commit.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="manifest" href="/site.webmanifest" />
+    <script>
+      window.addEventListener('scroll', function () {
+        const header = document.getElementById('main-header');
+        const logo = document.getElementById('logo');
+        if (window.scrollY > 50) {
+          header.classList.add('py-2');
+          header.classList.remove('py-4');
+          logo.classList.add('h-8');
+          logo.classList.remove('h-12');
+        } else {
+          header.classList.remove('py-2');
+          header.classList.add('py-4');
+          logo.classList.remove('h-8');
+          logo.classList.add('h-12');
+        }
+      });
+    </script>
+    <style>
+      @media (max-width: 768px) {
+        #main-header {
+          padding: 0.5rem 1rem;
+        }
+        #logo {
+          height: 2rem;
+        }
+        .hero-section {
+          height: 100vh;
+        }
+        .hero-title {
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+        .hero-subtitle {
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+        .section-spacing {
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <header id="main-header" class="bg-gray-800 py-4 px-6 shadow-md fixed w-full top-0 z-50">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <img src="/images/logo.jpg" alt="One Commit ロゴ" id="logo" class="h-12" />
+        <a href="https://line.me/ti/p/%40897qygw" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md">無料相談してみる</a>
+      </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="relative w-full h-[100vh] md:h-[500px] overflow-hidden pt-[3rem]">
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" poster="/images/hero_frame1.png">
+        <source src="/images/hero_sub.mp4" type="video/mp4" />
+        お使いのブラウザは video タグをサポートしていません。
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
+        <h1 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">ONE COMMIT</h1>
+        <p class="text-white mt-4 text-lg md:text-2xl">あなたを変える、たった一つの習慣</p>
+        <a href="https://line.me/ti/p/%40897qygw" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110">無料相談してみる</a>
+      </div>
+    </section>
+
+    <main class="p-4 md:p-6 mt-4">
+      <section class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">理想の体型に最短で。</h2>
+        <p class="text-base md:text-lg mb-6">世界ランカーの講師による、個別サポート付きのオンラインサロンです。</p>
+        <a href="https://line.me/ti/p/%40897qygw" class="inline-block bg-green-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-green-600 transition">LINEで無料特典を受け取る</a>
+      </section>
+
+      <!-- 講師紹介セクション -->
+      <section class="max-w-6xl mx-auto mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">講師陣紹介</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <div class="mb-4">
+              <img src="/images/enokida_kazuto.jpg" alt="榎田一斗" class="w-full h-48 md:h-64 object-cover rounded-lg" />
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">榎田一斗</h3>
+            <ul class="text-left space-y-2">
+              <li>・2024年クラシックフィジーク日本2位</li>
+              <li>・世界大会4位</li>
+              <li>・株式会社 パワーハウスジムオリンピア 代表取締役</li>
+              <li>・株式会社おぐらきんなべ代表取締役</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <div class="mb-4">
+              <img src="/images/enokida_hiroto.jpg" alt="榎田大人" class="w-full h-48 md:h-64 object-cover rounded-lg" />
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">榎田大人</h3>
+            <ul class="text-left space-y-2">
+              <li>・2023年ジュニア日本オーバーオール優勝</li>
+              <li>・株式会社 パワーハウスジムオリンピア 代表取締役</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 料金プランセクション -->
+      <section class="max-w-6xl mx-auto mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">料金プラン</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <h3 class="text-xl md:text-2xl font-bold mb-2">Aプラン</h3>
+            <div class="mb-4">
+              <p class="text-2xl md:text-3xl font-bold text-gray-400 line-through mb-1">¥20,000<span class="text-sm">/月</span></p>
+              <p class="text-2xl md:text-3xl font-bold text-green-500">¥10,000<span class="text-sm">/月</span></p>
+              <p class="text-red-500 text-sm">リリース特価</p>
+            </div>
+            <ul class="text-left space-y-2">
+              <li>・1ヶ月で実感できない場合、全額返金保証</li>
+              <li>・パーソナライズされたトレーニングプラン</li>
+              <li>・食事アドバイス</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <h3 class="text-xl md:text-2xl font-bold mb-2">Bプラン</h3>
+            <div class="mb-4">
+              <p class="text-2xl md:text-3xl font-bold text-gray-400 line-through mb-1">¥70,000<span class="text-sm">/月</span></p>
+              <p class="text-2xl md:text-3xl font-bold text-green-500">¥50,000<span class="text-sm">/月</span></p>
+              <p class="text-red-500 text-sm">リリース特価</p>
+            </div>
+            <ul class="text-left space-y-2">
+              <li>・6ヶ月で効果が実感できない場合、全額返金保証</li>
+              <li>・完全オーダーメイドプログラム</li>
+              <li>・24時間サポート</li>
+              <li>・進捗管理</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-8 text-center text-sm">
+      <div class="space-x-4">
+        <a href="/tokushoho.html" class="hover:text-white">特定商取引法に基づく表記</a>
+        <a href="/privacy.html" class="hover:text-white">プライバシーポリシー</a>
+        <a href="/terms.html" class="hover:text-white">利用規約</a>
+      </div>
+      <p class="mt-4">ONE COMMIT / 黒木瑞樹<br>〒880-0834 宮崎県宮崎市新別府町土田574-1</p>
+      <p class="mt-2">登録手数料：5,500円（A・Bプラン共通）<br>お支払いは指定口座へのお振込となります（手数料はご負担ください）</p>
+      <p class="mt-2">Aプラン：1ヶ月目で実感できない場合、全額返金可<br>Bプラン：6ヶ月で効果が実感できなかった場合、以下を満たせば全額返金可：<br>・カリキュラムに沿って行動していること<br>・体重が-1kgも変化していない<br>・体重が半年間一切変動していない<br>・効果を感じない</p>
+      <p class="mt-2">&copy; 2025 One Commit. All rights reserved.</p>
+    </footer>
+  </body>
+</html> 
