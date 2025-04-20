@@ -67,25 +67,87 @@
         </div>
       </section>
 
-      <section class="bg-gray-800 p-6 mt-10 rounded-lg max-w-3xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4">料金プラン（リリース特価）</h2>
-        <div class="space-y-6 text-left">
-          <div>
-            <h3 class="text-lg font-semibold">Aプラン（月額 10,000円）</h3>
-            <p>通常価格：20,000円</p>
-            <p class="text-sm text-gray-400">1ヶ月で効果が実感できない場合、全額返金保証</p>
+      <section id="plans" class="bg-gray-900 text-white py-16 px-6">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-8">料金プラン（リリース特価）</h2>
+          <div class="overflow-x-auto">
+            <table class="table-auto w-full text-left border-collapse border border-gray-700">
+              <thead>
+                <tr class="bg-gray-800">
+                  <th class="border border-gray-700 px-4 py-2">項目</th>
+                  <th class="border border-gray-700 px-4 py-2">プランA（1万円/月）</th>
+                  <th class="border border-gray-700 px-4 py-2">プランB（5万円/6ヶ月）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">サプリ摂取タイミング</td>
+                  <td class="border border-gray-700 px-4 py-2">一般的なガイドライン</td>
+                  <td class="border border-gray-700 px-4 py-2">個別の目標に合わせた詳細な摂取スケジュール</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">トレーニングメニュー</td>
+                  <td class="border border-gray-700 px-4 py-2">月1回の標準メニュー提供</td>
+                  <td class="border border-gray-700 px-4 py-2">週1回の個別カスタマイズ+フォームチェック</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">食事指導</td>
+                  <td class="border border-gray-700 px-4 py-2">基本的なガイドライン</td>
+                  <td class="border border-gray-700 px-4 py-2">毎週のレビュー＆フィードバック</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">自動応答</td>
+                  <td class="border border-gray-700 px-4 py-2">一般的な質問対応</td>
+                  <td class="border border-gray-700 px-4 py-2">カスタマイズされた即応答</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">トレーナー面談</td>
+                  <td class="border border-gray-700 px-4 py-2">月1回グループ面談（最大5名）</td>
+                  <td class="border border-gray-700 px-4 py-2">週1回の個別面談</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">特別コンテンツ</td>
+                  <td class="border border-gray-700 px-4 py-2">一般向けトレーニング情報</td>
+                  <td class="border border-gray-700 px-4 py-2">限定ウェビナー・研究情報シェア</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">サポート体制</td>
+                  <td class="border border-gray-700 px-4 py-2">通常対応（24時間以内返信）</td>
+                  <td class="border border-gray-700 px-4 py-2">優先対応（12時間以内）+専用チャット</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div>
-            <h3 class="text-lg font-semibold">Bプラン（月額 50,000円）</h3>
-            <p>通常価格：70,000円</p>
-            <p class="text-sm text-gray-400">6ヶ月で効果が実感できない場合、以下の条件を満たせば全額返金保証：</p>
-            <ul class="text-sm text-gray-400 list-disc list-inside">
-              <li>カリキュラムに沿って行動している</li>
-              <li>体重が-1kgも変化していない</li>
-              <li>体重が半年間一切変動していない</li>
-              <li>効果を実感していない</li>
-            </ul>
-          </div>
+          <p class="text-center mt-6 text-sm text-gray-400">
+            ※ 登録手数料：両プランともに 5,500円（銀行振込 / 手数料はお客様負担）
+          </p>
+        </div>
+      </section>
+
+      <section id="legal" class="bg-gray-800 text-white py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold mb-4">特定商取引法に基づく表記</h2>
+          <ul class="text-sm space-y-2">
+            <li><strong>販売業者名：</strong>One commit</li>
+            <li><strong>運営責任者：</strong>黒木瑞樹</li>
+            <li><strong>所在地：</strong>〒880-0834 宮崎県宮崎市新別府町土田574-1</li>
+            <li><strong>メールアドレス：</strong> info@onecommit.jp（仮）</li>
+            <li><strong>支払方法：</strong>銀行振込（手数料はお客様負担）</li>
+            <li><strong>返金・キャンセルポリシー：</strong>
+              <ul class="list-disc ml-6">
+                <li>Bプランは半年後に実感がない場合、以下条件で全額返金</li>
+                <li>Aプランは1ヶ月目で効果がなければ全額返金</li>
+                <li>条件：カリキュラム遵守、体重変化 -1kg以下、半年間の体重維持</li>
+              </ul>
+            </li>
+            <li><strong>禁止事項：</strong>
+              <ul class="list-disc ml-6">
+                <li>第三者への情報提供</li>
+                <li>発覚時は即退会・返金不可・法的対応あり</li>
+                <li>関連企業・ユーザー間の勧誘行為も禁止</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
