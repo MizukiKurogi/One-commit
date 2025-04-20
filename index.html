@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>One Commit</title>
-    <meta name="description" content="世界ランカー監修のオンラインボディメイクサロン。LINE登録で1週間の無料特典付き。">
-    <meta name="keywords" content="オンラインサロン, 筋トレ, ダイエット, 健康, ボディメイク, パーソナルトレーニング">
+    <meta name="description" content="世界ランカー監修のオンラインボディメイクサロン。LINE登録で1週間の無料特典付き。" />
+    <meta name="keywords" content="オンラインサロン, 筋トレ, ダイエット, 健康, ボディメイク, パーソナルトレーニング" />
     <meta property="og:title" content="One Commit - あなたを変える、たった一つの習慣" />
     <meta property="og:description" content="筋トレ・ダイエットに特化したパーソナルオンラインサロン。世界ランカー講師による個別サポート！" />
-    <meta property="og:image" content="https://one-commit.vercel.app/images/hero_frame1.png" />
+    <meta property="og:image" content="https://one-commit.vercel.app/images/hero_og.jpg" />
     <meta property="og:url" content="https://one-commit.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <link rel="manifest" href="/site.webmanifest">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="manifest" href="/site.webmanifest" />
     <script>
       window.addEventListener('scroll', function () {
         const header = document.getElementById('main-header');
@@ -38,444 +36,124 @@
           logo.classList.add('h-12');
         }
       });
-      
-      document.addEventListener('DOMContentLoaded', function () {
-        AOS.init({
-          duration: 1000,
-          once: true
-        });
-      });
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "One commit",
-      "url": "https://one-commit.jp",
-      "logo": "https://one-commit.jp/images/logo.jpg",
-      "description": "理想の体型を最短で実現するオンラインフィットネスサロン。世界ランカーのトレーナーが個別にサポートします。",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "新別府町土田574-1",
-        "addressLocality": "宮崎市",
-        "addressRegion": "宮崎県",
-        "postalCode": "880-0834",
-        "addressCountry": "JP"
-      },
-      "sameAs": [
-        "https://line.me/ti/p/%40897qygvv",
-        "https://www.instagram.com/one_commit_wankomi",
-        "https://www.youtube.com/@Onecommit",
-        "https://www.tiktok.com/@one.commit",
-        "https://x.com/one_commit"
-      ]
-    }
     </script>
     <style>
-        :root {
-            --primary-color: #10B981;
-            --secondary-color: #1F2937;
-            --accent-color: #F59E0B;
+      @media (max-width: 768px) {
+        #main-header {
+          padding: 0.5rem 1rem;
         }
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent;
+        #logo {
+          height: 2rem;
         }
-        .hero-pattern {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .fade-in {
-            animation: fadeIn 1.5s ease-in-out forwards;
-            opacity: 0;
-        }
-        .slide-up {
-            animation: slideUp 1s ease-out both;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .hover-scale {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .hover-scale:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .swiper {
-            width: 100%;
-            padding-top: 60px;
-            padding-bottom: 60px;
-        }
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 320px;
-            height: 320px;
-            transition: transform 0.3s ease;
-        }
-        .swiper-slide:hover {
-            transform: translateY(-5px);
-        }
-        .gradient-text {
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .btn-primary {
-            background: linear-gradient(45deg, var(--primary-color), #059669);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
-        }
-        .section-padding {
-            padding: 6rem 1rem;
-        }
-        @media (min-width: 768px) {
-            .section-padding {
-                padding: 8rem 2rem;
-            }
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .hero-section {
+          height: 100vh;
         }
         .hero-title {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          font-size: 2rem;
+          line-height: 1.2;
         }
         .hero-subtitle {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+          font-size: 1rem;
+          line-height: 1.5;
         }
-        .cta-glow {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
-            transition: all 0.3s ease-in-out;
+        .section-spacing {
+          margin-bottom: 2rem;
         }
-        .cta-glow:hover {
-            box-shadow: 0 0 40px rgba(59, 130, 246, 1);
-            transform: scale(1.05);
-        }
-        /* モバイルでのタッチ操作の最適化 */
-        @media (max-width: 768px) {
-            button, a {
-                min-height: 44px;
-                min-width: 44px;
-                padding: 12px;
-            }
-            #mobile-menu a {
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-        }
-        /* 動画のレスポンシブ対応 */
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .video-container video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
-        }
-        @media (max-width: 768px) {
-            .video-container {
-                height: 300px;
-            }
-            .video-container video {
-                width: 100%;
-                height: 100%;
-            }
-        }
-        /* パフォーマンス最適化 */
-        .lazy-load {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-        }
-        .lazy-load.loaded {
-            opacity: 1;
-        }
-        @media (max-width: 768px) {
-            #main-header {
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem;
-            }
-            #logo {
-                height: 2rem;
-            }
-            .hero-title {
-                font-size: 2rem;
-                line-height: 1.2;
-                margin-bottom: 0.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1rem;
-                line-height: 1.5;
-                margin-bottom: 1rem;
-            }
-            .cta-button {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
-            }
-            .section-spacing {
-                margin-bottom: 2rem;
-                padding: 0 1rem;
-            }
-        }
+      }
     </style>
-</head>
-<body class="bg-gray-900 text-white pt-20">
-    <!-- ヘッダー -->
-    <header id="main-header" class="bg-gray-800 py-2 px-4 md:py-4 md:px-6 shadow-md fixed w-full top-0 z-50">
+  </head>
+  <body class="bg-gray-900 text-white">
+    <header id="main-header" class="bg-gray-800 py-4 px-6 shadow-md fixed w-full top-0 z-50">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <img src="/images/logo.jpg" alt="One Commit ロゴ" id="logo" class="h-8 md:h-12" />
-        <nav class="flex items-center">
-          <a href="https://line.me/ti/p/%40897qygw" class="text-white text-sm md:text-base hover:text-blue-400 transition bg-blue-600 px-3 py-1 md:px-4 md:py-2 rounded">無料相談してみる</a>
-        </nav>
+        <img src="/images/logo.jpg" alt="One Commit ロゴ" id="logo" class="h-12" />
+        <a href="https://line.me/ti/p/%40897qygw" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md">無料相談してみる</a>
       </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
     <section class="relative w-full h-[100vh] md:h-[500px] overflow-hidden pt-[3rem]">
-        <div class="video-container">
-            <video 
-                id="hero-video"
-                autoplay 
-                muted 
-                loop 
-                playsinline 
-                preload="metadata"
-                poster="/images/hero_frame1.png"
-                class="lazy-load" 
-                aria-hidden="true"
-            >
-                <source src="/images/hero_sub.mp4" type="video/mp4" />
-                お使いのブラウザは video タグをサポートしていません。
-            </video>
-        </div>
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
-            <h1 class="hero-title text-white text-3xl md:text-6xl font-bold drop-shadow-lg mb-2 md:mb-4">ONE COMMIT</h1>
-            <p class="hero-subtitle text-white text-base md:text-2xl mb-4 md:mb-6">あなたを変える、たった一つの習慣</p>
-            <a href="https://line.me/ti/p/%40897qygw" class="cta-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110 text-sm md:text-base">
-                無料相談してみる
-            </a>
-        </div>
-    </section>
-
-    <!-- Hero Section Frame 2 -->
-    <section class="relative w-full h-[500px] overflow-hidden" role="banner">
-      <img src="/images/hero_frame2.jpg" alt="fist pushing glass" class="absolute inset-0 w-full h-full object-cover" />
-    </section>
-
-    <!-- Aboutセクション -->
-    <section id="about" class="py-16 px-6 bg-gray-800" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto text-center fade-in slide-up">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6 gradient-text">About One commit</h2>
-            <p class="text-base sm:text-lg leading-relaxed text-gray-300">
-                One commitは、「理想の体型に最短で」をコンセプトにしたオンラインサロンです。<br class="hidden sm:block">
-                トレーナー黒木の過去の挫折経験と、世界ランカーの榎田兄弟の実績を組み合わせて、<br class="hidden sm:block">
-                誰でも最短で変われる効率的なカリキュラムを提供しています。<br class="hidden sm:block">
-                トレーニングは「辛い」より「楽しい」と思える──<br class="hidden sm:block">
-                それがOne commitの目指すオンラインサロンです。
-            </p>
-        </div>
-    </section>
-
-    <!-- SERVICEセクション -->
-    <section id="service" class="py-20 px-6 bg-gray-900" data-aos="fade-up">
-        <div class="max-w-6xl mx-auto text-center fade-in slide-up">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-12 gradient-text">SERVICE</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-800 p-8 rounded-lg shadow-lg hover-scale" data-aos="fade-right">
-                    <h3 class="text-2xl font-semibold mb-4 text-green-400">SUPPORT1：洗練されたカリキュラム</h3>
-                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
-                        あなたの身長、体重、生活リズムをもとに、<br class="hidden sm:block">
-                        1日ごとの最適なプランを構築。他には真似できない、<br class="hidden sm:block">
-                        完全オリジナルなサポートカリキュラムを提供します。
-                    </p>
-                </div>
-                <div class="bg-gray-800 p-8 rounded-lg shadow-lg hover-scale" data-aos="fade-left">
-                    <h3 class="text-2xl font-semibold mb-4 text-green-400">SUPPORT2：あなたのレベルに合わせたサポート</h3>
-                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
-                        初心者から上級者まで、やる気やライフスタイルに合わせた<br class="hidden sm:block">
-                        カリキュラム設計。楽しみながら継続できるサポートを提供します。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PLANセクション -->
-    <section id="plan" class="section-padding bg-gray-800" data-aos="fade-up">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in gradient-text">PLAN</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-900 p-8 rounded-lg hover-scale" data-aos="zoom-in" data-aos-delay="100">
-                    <h3 class="text-xl font-bold mb-4 text-emerald-400">ダイエット</h3>
-                    <p class="text-gray-300">食事・有酸素メニューの提供</p>
-                </div>
-                <div class="bg-gray-900 p-8 rounded-lg hover-scale" data-aos="zoom-in" data-aos-delay="200">
-                    <h3 class="text-xl font-bold mb-4 text-emerald-400">筋トレ</h3>
-                    <p class="text-gray-300">宅トレ/ジム、食事/サプリタイミングまで支援</p>
-                </div>
-                <div class="bg-gray-900 p-8 rounded-lg hover-scale" data-aos="zoom-in" data-aos-delay="300">
-                    <h3 class="text-xl font-bold mb-4 text-emerald-400">生活改善</h3>
-                    <p class="text-gray-300">パートナー・家族向けにも対応可</p>
-                </div>
-                <div class="bg-gray-900 p-8 rounded-lg hover-scale" data-aos="zoom-in" data-aos-delay="400">
-                    <h3 class="text-xl font-bold mb-4 text-emerald-400">トレーナーサポート</h3>
-                    <p class="text-gray-300">週1の個別面談</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MESSAGEセクション -->
-    <section id="message" class="py-16 px-6 bg-gray-900" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto text-center fade-in slide-up">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6 gradient-text">MESSAGE</h2>
-            <p class="text-base sm:text-lg leading-relaxed text-gray-300">
-                トレーニングは「辛い」より「楽しい」と思える──<br class="hidden sm:block">
-                それがOne commitの目指すオンラインサロンです。
-            </p>
-        </div>
-    </section>
-
-    <!-- 料金プラン比較セクション -->
-    <section id="plans" class="bg-gray-800 py-16 fade-in" role="region" aria-labelledby="plans-heading">
-      <div class="max-w-5xl mx-auto px-4">
-        <h2 id="plans-heading" class="text-3xl font-bold mb-8">料金プラン比較</h2>
-        <div class="overflow-x-auto">
-          <table class="min-w-full table-auto border-collapse text-sm md:text-base" role="table" aria-label="料金プラン比較表">
-            <thead class="bg-gray-900">
-              <tr>
-                <th class="border px-4 py-2">項目</th>
-                <th class="border px-4 py-2">プランA（1万円）</th>
-                <th class="border px-4 py-2">プランB（5万円）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="bg-gray-800 hover:bg-gray-700">
-                <td class="border px-4 py-2">サプリ摂取タイミング</td>
-                <td class="border px-4 py-2">一般的なガイドラインを提供</td>
-                <td class="border px-4 py-2">個別の生活リズムや目標に合わせた詳細なスケジュール</td>
-              </tr>
-              <tr class="bg-gray-900 hover:bg-gray-800">
-                <td class="border px-4 py-2">トレーニングメニュー</td>
-                <td class="border px-4 py-2">月1回の標準的なメニュー提供</td>
-                <td class="border px-4 py-2">週1回の個別カスタマイズ、フォームチェック付き</td>
-              </tr>
-              <tr class="bg-gray-800 hover:bg-gray-700">
-                <td class="border px-4 py-2">食事指導</td>
-                <td class="border px-4 py-2">基本的なガイドライン提供</td>
-                <td class="border px-4 py-2">毎週のレビューとフィードバック、調整</td>
-              </tr>
-              <tr class="bg-gray-900 hover:bg-gray-800">
-                <td class="border px-4 py-2">自動応答サービス</td>
-                <td class="border px-4 py-2">一般的な質問対応</td>
-                <td class="border px-4 py-2">個別対応、迅速な応答</td>
-              </tr>
-              <tr class="bg-gray-800 hover:bg-gray-700">
-                <td class="border px-4 py-2">トレーナー面談</td>
-                <td class="border px-4 py-2">月1回のグループ面談</td>
-                <td class="border px-4 py-2">週1回の個別面談と進捗サポート</td>
-              </tr>
-              <tr class="bg-gray-900 hover:bg-gray-800">
-                <td class="border px-4 py-2">特別コンテンツ</td>
-                <td class="border px-4 py-2">一般情報の提供</td>
-                <td class="border px-4 py-2">限定ウェビナー、Q&A、研究情報の共有</td>
-              </tr>
-              <tr class="bg-gray-800 hover:bg-gray-700">
-                <td class="border px-4 py-2">サポート体制</td>
-                <td class="border px-4 py-2">通常対応（24時間以内）</td>
-                <td class="border px-4 py-2">優先対応（12時間以内）、専用チャネル</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" poster="/images/hero_frame1.png">
+        <source src="/images/hero_sub.mp4" type="video/mp4" />
+        お使いのブラウザは video タグをサポートしていません。
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
+        <h1 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">ONE COMMIT</h1>
+        <p class="text-white mt-4 text-lg md:text-2xl">あなたを変える、たった一つの習慣</p>
+        <a href="https://line.me/ti/p/%40897qygw" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110">無料相談してみる</a>
       </div>
     </section>
 
-    <!-- LINE特典セクション -->
-    <section class="py-16 px-6 bg-gradient-to-r from-green-500 to-green-700 text-white text-center" data-aos="fade-up">
-        <div class="max-w-3xl mx-auto fade-in slide-up">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-4">LINE登録で無料特典プレゼント中！</h2>
-            <p class="text-base sm:text-lg mb-6">1週間分の食事プランまたはトレーニングメニュー、今だけ無料で配布中。</p>
-            <a href="https://line.me/ti/p/%40897qygvv" class="inline-block bg-white text-green-600 font-semibold px-6 py-3 rounded-full text-lg shadow-lg transition transform hover:scale-105">
-                今すぐ無料特典を受け取る
-            </a>
-        </div>
-    </section>
+    <main class="p-4 md:p-6 mt-4">
+      <section class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">理想の体型に最短で。</h2>
+        <p class="text-base md:text-lg mb-6">世界ランカーの講師による、個別サポート付きのオンラインサロンです。</p>
+        <a href="https://line.me/ti/p/%40897qygw" class="inline-block bg-green-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-green-600 transition">LINEで無料特典を受け取る</a>
+      </section>
 
-    <!-- 講師紹介セクション -->
-    <section id="about" class="bg-gray-900 py-16 fade-in" role="region" aria-labelledby="about-heading">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 id="about-heading" class="text-3xl font-bold mb-8">講師紹介</h2>
-        <div class="grid md:grid-cols-2 gap-10">
-          <div class="transform hover:scale-105 transition-transform duration-300">
-            <img src="/images/enokida_kazuto.jpg" alt="榎田一斗" class="rounded-lg object-cover w-full h-auto" />
-            <p class="text-center font-bold text-xl mt-4">榎田一斗</p>
-            <p class="text-center text-sm">・2024年クラシックフィジーク日本2位・世界大会4位</p>
-            <p class="text-center text-sm">・株式会社 パワーハウスジムオリンピア 代表取締役</p>
-          </div>
-          <div class="transform hover:scale-105 transition-transform duration-300">
-            <img src="/images/enokida_hiroto.jpg" alt="榎田大人" class="rounded-lg object-cover w-full h-auto" />
-            <p class="text-center font-bold text-xl mt-4">榎田大人</p>
-            <p class="text-center text-sm">・2023年ジュニア日本オーバーオール優勝</p>
-            <p class="text-center text-sm">・株式会社 おぐらきんなべ 代表取締役</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQセクション -->
-    <section id="faq" class="py-20 px-6 bg-gray-900" data-aos="fade-up">
-        <div class="max-w-5xl mx-auto fade-in slide-up">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center gradient-text">FAQ</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="bg-gray-800 p-6 rounded-lg shadow hover-scale" data-aos="fade-right">
-                    <h3 class="text-lg font-semibold text-green-400 mb-2">Q. One commitはどんなサービスですか？</h3>
-                    <p class="text-gray-300 text-sm">A. 世界1のフィットネス系オンラインサロンを目指し、常に進化し続けるサービスです。</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow hover-scale" data-aos="fade-left">
-                    <h3 class="text-lg font-semibold text-green-400 mb-2">Q. 他のオンラインサロンとの違いは？</h3>
-                    <p class="text-gray-300 text-sm">A. 毎日のカリキュラムにより、ミスの早期修正が可能な点が最大の違いです。</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow hover-scale" data-aos="fade-right">
-                    <h3 class="text-lg font-semibold text-green-400 mb-2">Q. 初心者でも参加できますか？</h3>
-                    <p class="text-gray-300 text-sm">A. 完全個別対応なので、初心者でも安心してご参加いただけます。</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow hover-scale" data-aos="fade-left">
-                    <h3 class="text-lg font-semibold text-green-400 mb-2">Q. 年齢制限はありますか？</h3>
-                    <p class="text-gray-300 text-sm">A. LINEを利用できる方であれば年齢制限はありません。</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow hover-scale sm:col-span-2" data-aos="fade-up">
-                    <h3 class="text-lg font-semibold text-green-400 mb-2">Q. 無料特典とは？</h3>
-                    <p class="text-gray-300 text-sm">A. LINE登録で1週間の食事プランまたはトレーニングメニューをプレゼント。</p>
-                </div>
+      <!-- 講師紹介セクション -->
+      <section class="max-w-6xl mx-auto mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">講師陣紹介</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <div class="mb-4">
+              <img src="/images/enokida_kazuto.jpg" alt="榎田一斗" class="w-full h-48 md:h-64 object-cover rounded-lg" />
             </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">榎田一斗</h3>
+            <ul class="text-left space-y-2">
+              <li>・2024年クラシックフィジーク日本2位</li>
+              <li>・世界大会4位</li>
+              <li>・株式会社 パワーハウスジムオリンピア 代表取締役</li>
+              <li>・株式会社おぐらきんなべ代表取締役</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <div class="mb-4">
+              <img src="/images/enokida_hiroto.jpg" alt="榎田大人" class="w-full h-48 md:h-64 object-cover rounded-lg" />
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">榎田大人</h3>
+            <ul class="text-left space-y-2">
+              <li>・2023年ジュニア日本オーバーオール優勝</li>
+              <li>・株式会社 パワーハウスジムオリンピア 代表取締役</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- フッター -->
+      <!-- 料金プランセクション -->
+      <section class="max-w-6xl mx-auto mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">料金プラン</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <h3 class="text-xl md:text-2xl font-bold mb-2">Aプラン</h3>
+            <div class="mb-4">
+              <p class="text-2xl md:text-3xl font-bold text-gray-400 line-through mb-1">¥20,000<span class="text-sm">/月</span></p>
+              <p class="text-2xl md:text-3xl font-bold text-green-500">¥10,000<span class="text-sm">/月</span></p>
+              <p class="text-red-500 text-sm">リリース特価</p>
+            </div>
+            <ul class="text-left space-y-2">
+              <li>・1ヶ月で実感できない場合、全額返金保証</li>
+              <li>・パーソナライズされたトレーニングプラン</li>
+              <li>・食事アドバイス</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
+            <h3 class="text-xl md:text-2xl font-bold mb-2">Bプラン</h3>
+            <div class="mb-4">
+              <p class="text-2xl md:text-3xl font-bold text-gray-400 line-through mb-1">¥70,000<span class="text-sm">/月</span></p>
+              <p class="text-2xl md:text-3xl font-bold text-green-500">¥50,000<span class="text-sm">/月</span></p>
+              <p class="text-red-500 text-sm">リリース特価</p>
+            </div>
+            <ul class="text-left space-y-2">
+              <li>・6ヶ月で効果が実感できない場合、全額返金保証</li>
+              <li>・完全オーダーメイドプログラム</li>
+              <li>・24時間サポート</li>
+              <li>・進捗管理</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <footer class="bg-gray-800 text-gray-400 py-8 text-center text-sm">
       <div class="space-x-4">
         <a href="/tokushoho.html" class="hover:text-white">特定商取引法に基づく表記</a>
@@ -484,153 +162,8 @@
       </div>
       <p class="mt-4">ONE COMMIT / 黒木瑞樹<br>〒880-0834 宮崎県宮崎市新別府町土田574-1</p>
       <p class="mt-2">登録手数料：5,500円（A・Bプラン共通）<br>お支払いは指定口座へのお振込となります（手数料はご負担ください）</p>
-      <p class="mt-2">Aプラン：1ヶ月目で実感できない場合、全額返金可<br>Bプラン：6ヶ月で効果が実感できなかった場合、以下を満たせば全額返金可：<br>
-      ・カリキュラムに沿って行動していること<br>・体重が-1kgも変化していない<br>・体重が半年間一切変動していない<br>・効果を感じない</p>
+      <p class="mt-2">Aプラン：1ヶ月目で実感できない場合、全額返金可<br>Bプラン：6ヶ月で効果が実感できなかった場合、以下を満たせば全額返金可：<br>・カリキュラムに沿って行動していること<br>・体重が-1kgも変化していない<br>・体重が半年間一切変動していない<br>・効果を感じない</p>
       <p class="mt-2">&copy; 2025 One Commit. All rights reserved.</p>
     </footer>
-
-    <!-- 固定LINEバナー -->
-    <a href="https://line.me/ti/p/%40897qygvv" class="fixed bottom-4 right-4 z-50 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition transform hover:scale-105">
-        <i class="fab fa-line mr-2"></i>LINEで無料特典
-    </a>
-
-    <!-- 特定商取引法に基づく表記 -->
-    <section id="legal" class="max-w-4xl mx-auto px-4 py-16 text-sm text-gray-300">
-      <h2 class="text-2xl font-bold text-white mb-6 text-center">特定商取引法に基づく表記</h2>
-      <div class="space-y-2">
-        <p><strong>販売事業者名：</strong>株式会社One Commit</p>
-        <p><strong>運営責任者：</strong>榎田一斗</p>
-        <p><strong>所在地：</strong>東京都渋谷区1-1-1</p>
-        <p><strong>電話番号：</strong>090-1234-5678（※お問い合わせはメールにてお願いいたします）</p>
-        <p><strong>メールアドレス：</strong>support@onecommit.jp</p>
-        <p><strong>販売価格：</strong>各サービス紹介ページに記載</p>
-        <p><strong>商品代金以外の必要料金：</strong>通信料等はお客様のご負担になります</p>
-        <p><strong>返品・キャンセルについて：</strong>サービスの性質上、原則不可。ただし特例対応あり</p>
-      </div>
-    </section>
-
-    <script>
-        new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            slidesPerView: 1,
-            spaceBetween: 20,
-            breakpoints: {
-                768: {
-                    slidesPerView: 2
-                }
-            }
-        });
-
-        // 遅延読み込みの実装
-        document.addEventListener('DOMContentLoaded', function() {
-            const lazyElements = document.querySelectorAll('.lazy-load');
-            
-            const lazyLoad = target => {
-                const io = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const element = entry.target;
-                            element.classList.add('loaded');
-                            observer.disconnect();
-                        }
-                    });
-                });
-
-                io.observe(target);
-            };
-            
-            lazyElements.forEach(lazyLoad);
-        });
-
-        // モバイルメニューの改善
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.querySelector('header');
-
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                mobileMenu.classList.toggle('hidden');
-                // メニューが開いているときはスクロールを無効化
-                document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden';
-            });
-
-            // メニュー項目クリック時の処理
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // 画面外クリックでメニューを閉じる
-            document.addEventListener('click', function(e) {
-                if (!header.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-
-        // ヘッダーのスクロール挙動改善
-        let lastScroll = 0;
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
-            lastScroll = currentScroll;
-        });
-
-        // 動画の最適化
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('hero-video');
-            
-            // 動画の読み込みを最適化
-            if (video) {
-                // ビューポート内に入った時に動画を再生
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            video.play().catch(function(error) {
-                                console.log("Video play failed:", error);
-                            });
-                        } else {
-                            video.pause();
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                observer.observe(video);
-
-                // 低帯域幅の場合の処理
-                if (navigator.connection && navigator.connection.effectiveType === '2g') {
-                    video.preload = 'none';
-                    video.poster = '/images/hero_frame1.png';
-                }
-
-                // バックグラウンドタブでの動画一時停止
-                document.addEventListener('visibilitychange', function() {
-                    if (document.hidden) {
-                        video.pause();
-                    } else {
-                        video.play().catch(function(error) {
-                            console.log("Video play failed:", error);
-                        });
-                    }
-                });
-
-                // モバイルデバイスでの最適化
-                if (window.matchMedia('(max-width: 768px)').matches) {
-                    video.setAttribute('preload', 'none');
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+  </body>
+</html> 
