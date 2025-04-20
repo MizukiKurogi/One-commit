@@ -3,23 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>One Commit</title>
-    <meta name="description" content="世界ランカー監修のオンラインボディメイクサロン。LINE登録で1週間の無料特典付き。" />
-    <meta name="keywords" content="オンラインサロン, 筋トレ, ダイエット, 健康, ボディメイク, パーソナルトレーニング" />
-    <meta property="og:title" content="One Commit - あなたを変える、たった一つの習慣" />
+    <title>One Commit｜世界ランカーと理想のカラダへ</title>
+    <meta name="description" content="世界ランカー監修のオンラインボディメイクサロン。LINE登録で1週間の無料特典付き。筋トレ・ダイエット・サプリ管理・個別指導の全てが揃う！" />
+    <meta name="keywords" content="オンラインサロン, 筋トレ, ダイエット, 健康, ボディメイク, パーソナルトレーニング, サプリメント, 食事管理" />
+    <meta property="og:title" content="One Commit - あなたを変える あなただけのカリキュラム" />
     <meta property="og:description" content="筋トレ・ダイエットに特化したパーソナルオンラインサロン。世界ランカー講師による個別サポート！" />
-    <meta property="og:image" content="https://one-commit.vercel.app/images/hero_og.jpg" />
+    <meta property="og:image" content="https://one-commit.vercel.app/images/hero_frame1.jpg" />
     <meta property="og:url" content="https://one-commit.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="manifest" href="/site.webmanifest" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "One Commit",
+        "url": "https://one-commit.vercel.app",
+        "logo": "https://one-commit.vercel.app/images/logo.jpg",
+        "sameAs": [
+          "https://instagram.com/kazuto_fitnessgym",
+          "https://instagram.com/hirotoenokida"
+        ]
+      }
+    </script>
     <script>
       window.addEventListener('scroll', function () {
         const header = document.getElementById('main-header');
@@ -36,134 +50,346 @@
           logo.classList.add('h-12');
         }
       });
-    </script>
-    <style>
-      @media (max-width: 768px) {
-        #main-header {
-          padding: 0.5rem 1rem;
-        }
-        #logo {
-          height: 2rem;
-        }
-        .hero-section {
-          height: 100vh;
-        }
-        .hero-title {
-          font-size: 2rem;
-          line-height: 1.2;
-        }
-        .hero-subtitle {
-          font-size: 1rem;
-          line-height: 1.5;
-        }
-        .section-spacing {
-          margin-bottom: 2rem;
-        }
+      function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
       }
-    </style>
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({
+          duration: 1000,
+          once: true,
+        });
+      });
+    </script>
   </head>
   <body class="bg-gray-900 text-white">
-    <header id="main-header" class="bg-gray-800 py-4 px-6 shadow-md fixed w-full top-0 z-50">
+    <header id="main-header" class="bg-gray-800 py-4 px-6 shadow-md sticky top-0 z-50">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <img src="/images/logo.jpg" alt="One Commit ロゴ" id="logo" class="h-12" />
-        <a href="https://line.me/ti/p/%40897qygw" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md">無料相談してみる</a>
+        <nav class="hidden md:flex space-x-6 text-white font-bold">
+          <a href="#about">ABOUT</a>
+          <a href="#service">SERVICE</a>
+          <a href="#plan">PLAN</a>
+          <a href="#message">MESSAGE</a>
+          <a href="#topix">TOPIX</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <button class="md:hidden text-white text-2xl" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="https://line.me/ti/p/%40897qygw" class="ml-4 px-4 py-2 bg-orange-500 text-white rounded-full font-bold hidden md:block hover:bg-orange-600 transition-colors duration-300">無料体験会に参加する ＋</a>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden bg-gray-700 p-4">
+        <a href="#about" class="block py-2">ABOUT</a>
+        <a href="#service" class="block py-2">SERVICE</a>
+        <a href="#plan" class="block py-2">PLAN</a>
+        <a href="#message" class="block py-2">MESSAGE</a>
+        <a href="#topix" class="block py-2">TOPIX</a>
+        <a href="#faq" class="block py-2">FAQ</a>
+        <a href="https://line.me/ti/p/%40897qygw" class="block py-2 mt-2 bg-orange-500 hover:bg-orange-600 text-white text-center rounded transition-colors duration-300">無料体験会に参加する ＋</a>
       </div>
     </header>
 
-    <!-- Hero Section with Video Background -->
-    <section class="relative w-full h-[100vh] md:h-[500px] overflow-hidden pt-[3rem]">
-      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" poster="/images/hero_frame1.png">
+    <section class="relative h-screen w-full overflow-hidden" data-aos="zoom-in">
+      <video class="absolute w-full h-full object-cover z-0" autoplay muted loop playsinline>
         <source src="/images/hero_sub.mp4" type="video/mp4" />
-        お使いのブラウザは video タグをサポートしていません。
       </video>
-      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
-        <h1 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">ONE COMMIT</h1>
-        <p class="text-white mt-4 text-lg md:text-2xl">あなたを変える、たった一つの習慣</p>
-        <a href="https://line.me/ti/p/%40897qygw" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition transform hover:scale-110">無料相談してみる</a>
+      <div class="relative z-30 flex items-center justify-center h-full bg-black bg-opacity-40">
+        <div class="text-center text-white">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">理想の体型に最短で。</h1>
+          <p class="text-lg md:text-xl mb-6 drop-shadow-lg">世界ランカーの講師による、個別サポート付きのオンラインサロンです。</p>
+          <a href="https://line.me/ti/p/%40897qygw" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full inline-block transition-colors duration-300">LINEで無料特典を受け取る</a>
+        </div>
       </div>
     </section>
 
-    <main class="p-4 md:p-6 mt-4">
-      <section class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4">理想の体型に最短で。</h2>
-        <p class="text-base md:text-lg mb-6">世界ランカーの講師による、個別サポート付きのオンラインサロンです。</p>
-        <a href="https://line.me/ti/p/%40897qygw" class="inline-block bg-green-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-green-600 transition">LINEで無料特典を受け取る</a>
-      </section>
-
-      <!-- 講師紹介セクション -->
-      <section class="max-w-6xl mx-auto mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">講師陣紹介</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
-            <div class="mb-4">
-              <img src="/images/enokida_kazuto.jpg" alt="榎田一斗" class="w-full h-48 md:h-64 object-cover rounded-lg" />
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold mb-4">榎田一斗</h3>
-            <ul class="text-left space-y-2">
-              <li>・2024年クラシックフィジーク日本2位</li>
-              <li>・世界大会4位</li>
-              <li>・株式会社 パワーハウスジムオリンピア 代表取締役</li>
-              <li>・株式会社おぐらきんなべ代表取締役</li>
-            </ul>
-          </div>
-          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
-            <div class="mb-4">
-              <img src="/images/enokida_hiroto.jpg" alt="榎田大人" class="w-full h-48 md:h-64 object-cover rounded-lg" />
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold mb-4">榎田大人</h3>
-            <ul class="text-left space-y-2">
-              <li>・2023年ジュニア日本オーバーオール優勝</li>
-              <li>・株式会社 パワーハウスジムオリンピア 代表取締役</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 料金プランセクション -->
-      <section class="max-w-6xl mx-auto mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">料金プラン</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
-            <h3 class="text-xl md:text-2xl font-bold mb-2">Aプラン</h3>
-            <div class="mb-4">
-              <p class="text-2xl md:text-3xl font-bold text-gray-400 line-through mb-1">¥20,000<span class="text-sm">/月</span></p>
-              <p class="text-2xl md:text-3xl font-bold text-green-500">¥10,000<span class="text-sm">/月</span></p>
-              <p class="text-red-500 text-sm">リリース特価</p>
-            </div>
-            <ul class="text-left space-y-2">
-              <li>・1ヶ月で実感できない場合、全額返金保証</li>
-              <li>・パーソナライズされたトレーニングプラン</li>
-              <li>・食事アドバイス</li>
-            </ul>
-          </div>
-          <div class="bg-gray-800 p-4 md:p-6 rounded-lg">
-            <h3 class="text-xl md:text-2xl font-bold mb-2">Bプラン</h3>
-            <div class="mb-4">
-              <p class="text-2xl md:text-3xl font-bold text-gray-400 line-through mb-1">¥70,000<span class="text-sm">/月</span></p>
-              <p class="text-2xl md:text-3xl font-bold text-green-500">¥50,000<span class="text-sm">/月</span></p>
-              <p class="text-red-500 text-sm">リリース特価</p>
-            </div>
-            <ul class="text-left space-y-2">
-              <li>・6ヶ月で効果が実感できない場合、全額返金保証</li>
-              <li>・完全オーダーメイドプログラム</li>
-              <li>・24時間サポート</li>
-              <li>・進捗管理</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="bg-gray-800 text-gray-400 py-8 text-center text-sm">
-      <div class="space-x-4">
-        <a href="/tokushoho.html" class="hover:text-white">特定商取引法に基づく表記</a>
-        <a href="/privacy.html" class="hover:text-white">プライバシーポリシー</a>
-        <a href="/terms.html" class="hover:text-white">利用規約</a>
+    <section id="about" class="relative h-screen w-full" data-aos="fade-up">
+      <div class="absolute inset-0">
+        <img src="hhh_1.jpg" alt="背景" class="w-full h-full object-cover">
       </div>
-      <p class="mt-4">ONE COMMIT / 黒木瑞樹<br>〒880-0834 宮崎県宮崎市新別府町土田574-1</p>
-      <p class="mt-2">登録手数料：5,500円（A・Bプラン共通）<br>お支払いは指定口座へのお振込となります（手数料はご負担ください）</p>
-      <p class="mt-2">Aプラン：1ヶ月目で実感できない場合、全額返金可<br>Bプラン：6ヶ月で効果が実感できなかった場合、以下を満たせば全額返金可：<br>・カリキュラムに沿って行動していること<br>・体重が-1kgも変化していない<br>・体重が半年間一切変動していない<br>・効果を感じない</p>
-      <p class="mt-2">&copy; 2025 One Commit. All rights reserved.</p>
+      <div class="absolute inset-0 bg-black bg-opacity-60">
+        <div class="flex items-center justify-center h-full">
+          <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <h2 class="text-5xl font-bold mb-8 drop-shadow-lg">ABOUT</h2>
+            <div class="space-y-6">
+              <p class="text-2xl mb-4 drop-shadow-lg">One commitは筋トレ、ダイエットで悩むあなたをサポートします。</p>
+              <p class="text-xl leading-relaxed drop-shadow-lg">SNSなどでいろんな情報が出回る中、私たちは過去のエビデンスと世界ランカーの兄弟が世界ランカーになる際に得たプロセスをもとに<br>あなたにあった「あなただけのカリキュラム」を提案します。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service" class="py-16 bg-gray-900" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-green-500">SERVICE</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-xl font-bold mb-4 text-green-400">ダイエットサポート</h3>
+            <p class="text-gray-300">食事・有酸素メニューの提供、目標に合わせた個別プランニング</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-xl font-bold mb-4 text-green-400">筋トレ指導</h3>
+            <p class="text-gray-300">宅トレ/ジム、食事/サプリタイミングまで支援</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-xl font-bold mb-4 text-green-400">生活改善</h3>
+            <p class="text-gray-300">パートナー・家族向けにも対応可能</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-xl font-bold mb-4 text-green-400">トレーナーサポート</h3>
+            <p class="text-gray-300">週1の個別面談で進捗確認と調整</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-xl font-bold mb-4 text-green-400">栄養管理</h3>
+            <p class="text-gray-300">体型・目標に合わせた栄養指導と食事プラン作成</p>
+          </div>
+          <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-xl font-bold mb-4 text-green-400">メンタルケア</h3>
+            <p class="text-gray-300">モチベーション維持とストレス管理のサポート</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan" class="py-16 bg-gray-800" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">料金プラン</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Standard Plan -->
+          <div class="bg-gray-900 rounded-lg shadow-xl p-8 border border-green-500">
+            <h3 class="text-2xl font-bold mb-4 text-green-400">スタンダードプラン</h3>
+            <div class="text-3xl font-bold mb-2 text-white"><span class="line-through text-gray-500">¥20,000</span> ¥10,000<span class="text-sm">/月</span></div>
+            <p class="text-gray-300 mb-6">リリース特価</p>
+            <ul class="text-gray-300 space-y-2 mb-8">
+              <li>✓ 月2回のオンライン面談</li>
+              <li>✓ 食事プラン作成</li>
+              <li>✓ トレーニングメニュー提供</li>
+              <li>✓ LINEサポート（週1回）</li>
+            </ul>
+            <a href="https://line.me/ti/p/%40897qygw" class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg transition-colors duration-300">無料相談を予約する</a>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="bg-gray-900 rounded-lg shadow-xl p-8 border-2 border-yellow-500 transform scale-105">
+            <div class="absolute top-0 right-0 bg-yellow-500 text-black px-4 py-1 rounded-bl-lg">おすすめ</div>
+            <h3 class="text-2xl font-bold mb-4 text-yellow-400">プレミアムプラン</h3>
+            <div class="text-3xl font-bold mb-2 text-white"><span class="line-through text-gray-500">¥70,000</span> ¥50,000<span class="text-sm">/月</span></div>
+            <p class="text-gray-300 mb-6">リリース特価</p>
+            <ul class="text-gray-300 space-y-2 mb-8">
+              <li>✓ 週1回のオンライン面談</li>
+              <li>✓ カスタマイズ食事プラン</li>
+              <li>✓ 詳細なトレーニング指導</li>
+              <li>✓ 24時間LINEサポート</li>
+              <li>✓ サプリメントアドバイス</li>
+              <li>✓ 生活習慣改善プラン</li>
+            </ul>
+            <a href="https://line.me/ti/p/%40897qygw" class="block text-center bg-yellow-500 hover:bg-yellow-600 text-black py-3 rounded-lg transition-colors duration-300">無料相談を予約する</a>
+          </div>
+
+          <!-- Monitor Plan -->
+          <div class="bg-gray-900 rounded-lg shadow-xl p-8 border border-purple-500">
+            <h3 class="text-2xl font-bold mb-4 text-purple-400">モニタープラン</h3>
+            <div class="text-3xl font-bold mb-2 text-white">
+              <span class="text-purple-400">応相談</span>
+            </div>
+            <p class="text-gray-300 mb-6">期間限定募集</p>
+            <ul class="text-gray-300 space-y-2 mb-8">
+              <li>✓ プレミアムプランと同等のサービス</li>
+              <li>✓ Before/After写真提供</li>
+              <li>✓ 顔出し不要</li>
+              <li>✓ 24時間LINEサポート</li>
+              <li>✓ カスタマイズプラン</li>
+              <li>✓ 特別価格でご提供</li>
+            </ul>
+            <a href="https://line.me/ti/p/%40897qygw" class="block text-center bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg transition-colors duration-300">モニター申し込み</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="message" class="relative h-screen w-full" data-aos="fade-up">
+      <div class="absolute inset-0">
+        <img src="hhh_2.jpg" alt="メッセージ背景" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-50">
+        <div class="flex items-center justify-center h-full">
+          <div class="text-center">
+            <h2 class="text-5xl font-bold text-white drop-shadow-lg">筋トレ、ダイエットを楽しく、あなたらしく</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section id="instructors" class="py-16 bg-gray-900" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-white mb-12">講師紹介</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-gray-800 rounded-lg shadow-xl hover:shadow-2xl transition-shadow p-6">
+            <img src="enokida_kazuto.jpg" alt="榎田一斗" class="w-full h-64 object-cover rounded-lg mb-6">
+            <h3 class="text-2xl font-bold text-white mb-4">榎田 一斗</h3>
+            <div class="text-gray-300 space-y-4">
+              <div>
+                <h4 class="font-bold text-green-400 mb-2">【過去の実績】</h4>
+                <ul class="space-y-2">
+                  <li>• 2024年九州、沖縄クラシックフィジークオーバーオール優勝</li>
+                  <li>• 2024年日本クラシックフィジーク168cm2位</li>
+                  <li>• 世界大会4位</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-bold text-green-400 mb-2">【経歴】</h4>
+                <ul class="space-y-2">
+                  <li>• 株式会社おぐらきんなべ代表取締役</li>
+                  <li>• 株式会社パワーハウスジムオリンピア代表取締役</li>
+                </ul>
+              </div>
+              <div class="pt-2">
+                <a href="https://instagram.com/kazuto_fitnessgym" class="text-green-400 hover:text-green-300 flex items-center">
+                  <i class="fab fa-instagram mr-2"></i>@kazuto_fitnessgym
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-800 rounded-lg shadow-xl hover:shadow-2xl transition-shadow p-6">
+            <img src="enokida_hiroto.jpg" alt="榎田大人" class="w-full h-64 object-cover rounded-lg mb-6">
+            <h3 class="text-2xl font-bold text-white mb-4">榎田 大人</h3>
+            <div class="text-gray-300 space-y-4">
+              <div>
+                <h4 class="font-bold text-green-400 mb-2">【実績】</h4>
+                <ul class="space-y-2">
+                  <li>• 2022年日本クラス別-90kg優勝</li>
+                  <li>• 2023年Jr.オリンピア優勝</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-bold text-green-400 mb-2">【経歴】</h4>
+                <ul class="space-y-2">
+                  <li>• 株式会社パワーハウスジムオリンピア代表取締役</li>
+                </ul>
+              </div>
+              <div class="pt-2">
+                <a href="https://instagram.com/hirotoenokida" class="text-green-400 hover:text-green-300 flex items-center">
+                  <i class="fab fa-instagram mr-2"></i>@hirotoenokida
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topix" class="py-20 bg-gray-800" data-aos="fade-up">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">TOPIX</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="md:flex">
+              <div class="md:w-1/3">
+                <img src="/images/topix_01.png" alt="TOPIX 1" class="w-full h-full object-cover">
+              </div>
+              <div class="md:w-2/3 p-6">
+                <p class="text-gray-400 text-sm mb-2">2025.04.16</p>
+                <h3 class="text-xl font-bold text-white mb-4">【会員様限定特典】noteの有料コンテンツを無料で配信</h3>
+                <p class="text-gray-300">One Commitの会員様限定で、通常有料のnoteコンテンツを無料でご提供しています。最新のトレーニング情報や食事管理のコツなど、貴重な情報をお届けします。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <button class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded inline-flex items-center transition-colors duration-300">
+            もっと見る
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-16 bg-gray-900 text-white" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">よくある質問</h2>
+        <div class="space-y-6">
+          <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Q1. トレーニング経験がなくても大丈夫ですか？</h3>
+            <p>はい、初心者の方でも安心してご参加いただけます。お客様の経験レベルに合わせて、基礎から丁寧にサポートいたします。</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Q2. 食事制限は厳しいですか？</h3>
+            <p>極端な制限は行いません。お客様の生活リズムや好みに合わせて、無理のない食事プランを提案させていただきます。</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Q3. 途中解約は可能ですか？</h3>
+            <p>はい、可能です。ただし、返金に関しては各プランの規定に従って対応させていただきます。</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Q4. オンラインでの指導で効果は出ますか？</h3>
+            <p>はい。世界ランカーの経験とノウハウを活かし、オンラインでも効果的なサポートを提供しています。</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Q5. 必要な器具はありますか？</h3>
+            <p>基本的な自重トレーニングから始めることができます。必要に応じて、ご自宅でできるトレーニング方法をご提案します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 bg-gray-900 text-white" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/tokushoho.html" class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+          <h3 class="text-xl font-bold mb-2">特定商取引法</h3>
+          <p class="text-sm">当サロンの販売条件に関する法的表記はこちら</p>
+        </a>
+        <a href="/privacy.html" class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+          <h3 class="text-xl font-bold mb-2">プライバシーポリシー</h3>
+          <p class="text-sm">個人情報の取り扱い方針について明記しています</p>
+        </a>
+        <a href="/terms.html" class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+          <h3 class="text-xl font-bold mb-2">利用規約</h3>
+          <p class="text-sm">本サービスを利用する際のルールをご確認ください</p>
+        </a>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3 class="text-white text-lg font-bold mb-4">所在地</h3>
+            <p>〒880-0834 宮崎県宮崎市新別府町土田574-1</p>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-bold mb-4">トレーナー</h3>
+            <p>榎田一斗、榎田大人、黒木瑞樹</p>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-bold mb-4">SNSリンク</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="https://line.me/ti/p/%40897qygw" class="hover:text-white flex items-center">
+                <i class="fab fa-line w-6"></i> LINE
+              </a>
+              <a href="https://www.instagram.com/kazuto_fitnessgym" class="hover:text-white flex items-center">
+                <i class="fab fa-instagram w-6"></i> Instagram
+              </a>
+              <a href="#" class="hover:text-white flex items-center">
+                <i class="fab fa-youtube w-6"></i> YouTube
+              </a>
+              <a href="#" class="hover:text-white flex items-center">
+                <i class="fab fa-tiktok w-6"></i> TikTok
+              </a>
+              <a href="#" class="hover:text-white flex items-center">
+                <i class="fab fa-twitter w-6"></i> X
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center pt-8 border-t border-gray-800">
+          <p>&copy; 2025 One commit. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
   </body>
-</html> 
+</html>
