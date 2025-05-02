@@ -90,22 +90,33 @@
       </div>
     </header>
 
-    <section class="relative w-full min-h-screen md:h-screen" data-aos="zoom-in">
-      <img src="/images/hero_frame1.jpg" class="absolute inset-0 w-full h-full object-cover object-center block md:hidden z-0" alt="hero" loading="eager" />
-      <video class="absolute inset-0 w-full h-full object-contain hidden md:block z-0" autoplay muted loop playsinline>
+    <section class="relative w-full min-h-screen overflow-hidden">
+      <video 
+        class="absolute inset-0 w-full h-full object-cover z-0" 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        preload="auto"
+      >
         <source src="/images/hero_sub.mp4" type="video/mp4" />
       </video>
+
       <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 z-10 px-4 text-center">
         <div class="text-white">
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">理想の体型に最短で。</h1>
-          <p class="text-base sm:text-lg md:text-xl mb-6 drop-shadow-lg">世界ランカーの講師による、個別サポート付きのオンラインサロンです。</p>
-          <a href="https://lin.ee/GOiu2ef" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full inline-block text-sm md:text-base transition-colors duration-300">LINEで無料特典を受け取る</a>
+          <p class="text-base sm:text-lg md:text-xl mb-6 drop-shadow-lg">
+            世界ランカーの講師による、個別サポート付きのオンラインサロンです。
+          </p>
+          <a href="https://lin.ee/GOiu2ef" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full inline-block text-sm md:text-base transition-colors duration-300">
+            LINEで無料特典を受け取る
+          </a>
         </div>
       </div>
     </section>
 
     <section id="about" class="relative w-full min-h-screen overflow-hidden" data-aos="fade-up">
-      <img src="/images/hhh_1.jpg" alt="背景" class="absolute inset-0 w-full h-full object-contain z-0" />
+      <img src="/images/hhh_1.jpg" alt="背景" class="absolute inset-0 w-full h-full object-contain md:object-cover z-0" />
       <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center px-4 z-10">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h2 class="text-5xl font-bold mb-8 drop-shadow-lg">ABOUT</h2>
@@ -208,15 +219,13 @@
       </div>
     </section>
 
-    <section id="message" class="relative min-h-screen w-full md:h-screen" data-aos="fade-up">
-      <div class="absolute inset-0">
-        <img src="/images/hhh_2.jpg" alt="メッセージ背景" class="w-full h-full object-contain z-0" />
-      </div>
-      <div class="absolute inset-0 bg-black bg-opacity-50">
-        <div class="flex items-center justify-center h-full px-4 py-8">
-          <div class="text-center">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-lg">筋トレ、ダイエットを楽しく、あなたらしく</h2>
-          </div>
+    <section id="message" class="relative w-full min-h-screen overflow-hidden" data-aos="fade-up">
+      <img src="/images/hhh_2.jpg" alt="メッセージ背景" class="absolute inset-0 w-full h-full object-contain md:object-cover z-0" />
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4 z-10">
+        <div class="text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
+            筋トレ、ダイエットを楽しく、あなたらしく
+          </h2>
         </div>
       </div>
     </section>
