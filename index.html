@@ -33,39 +33,91 @@
         ]
       }
     </script>
-    <script>
-      window.addEventListener('scroll', function () {
-        const header = document.getElementById('main-header');
-        const logo = document.getElementById('logo');
-        if (window.scrollY > 50) {
-          header.classList.add('py-2');
-          header.classList.remove('py-4');
-          logo.classList.add('h-8');
-          logo.classList.remove('h-12');
-        } else {
-          header.classList.remove('py-2');
-          header.classList.add('py-4');
-          logo.classList.remove('h-8');
-          logo.classList.add('h-12');
+    <style>
+      /* モバイル対応のための追加スタイル */
+      @media (max-width: 768px) {
+        .min-h-screen {
+          min-height: 100vh;
         }
-      });
-      function toggleMenu() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
+        .mobile-video-container {
+          height: 100vh;
+          position: relative;
+        }
+        .mobile-video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
-      
-      document.addEventListener('DOMContentLoaded', () => {
+    </style>
+    <script>
+      // DOM完全ロード後に実行
+      document.addEventListener('DOMContentLoaded', function() {
+        // ヘッダースクロール機能
+        function handleScroll() {
+          const header = document.getElementById('main-header');
+          const logo = document.getElementById('logo');
+          if (window.scrollY > 50) {
+            header.classList.add('py-2');
+            header.classList.remove('py-4');
+            logo.classList.add('h-8');
+            logo.classList.remove('h-12');
+          } else {
+            header.classList.remove('py-2');
+            header.classList.add('py-4');
+            logo.classList.remove('h-8');
+            logo.classList.add('h-12');
+          }
+        }
+        
+        // スクロールイベントリスナーを追加
+        window.addEventListener('scroll', handleScroll);
+        
+        // モバイルメニュートグル機能
+        window.toggleMenu = function() {
+          const menu = document.getElementById('mobile-menu');
+          menu.classList.toggle('hidden');
+        };
+        
+        // AOSアニメーション初期化
         AOS.init({
           duration: 1000,
           once: true,
+          disable: 'mobile' // モバイルでアニメーションを無効化（オプション）
+        });
+
+        // ページ内リンクのスムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // モバイルメニューを閉じる
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+            }
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          });
         });
       });
     </script>
   </head>
   <body class="bg-gray-900 text-white">
-    <header id="main-header" class="bg-gray-800 py-4 px-4 md:px-6 shadow-md sticky top-0 z-50">
+    <header id="main-header" class="bg-gray-800 py-4 px-4 md:px-6 shadow-md sticky top-0 z-50 transition-all duration-300">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <img src="/images/logo.jpg" alt="One Commit ロゴ" id="logo" class="h-8 md:h-12" />
+        <img src="/images/logo.jpg" alt="One Commit ロゴ" id="logo" class="h-8 md:h-12 transition-all duration-300" />
         <nav class="hidden md:flex space-x-6 text-white font-bold">
           <a href="#about">ABOUT</a>
           <a href="#service">SERVICE</a>
@@ -74,24 +126,26 @@
           <a href="#topix">TOPIX</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <button class="md:hidden text-white text-2xl" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
-        <a href="https://lin.ee/GOiu2ef" class="ml-4 px-3 py-1 md:px-4 md:py-2 bg-orange-500 text-white rounded-full text-sm md:text-base font-bold hidden md:block hover:bg-orange-600 transition-colors duration-300">無料体験会に参加する ＋</a>
+        <div class="flex items-center">
+          <button class="md:hidden text-white text-2xl mr-2" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="https://lin.ee/GOiu2ef" class="px-3 py-1 md:px-4 md:py-2 bg-orange-500 text-white rounded-full text-sm md:text-base font-bold hover:bg-orange-600 transition-colors duration-300">無料体験 ＋</a>
+        </div>
       </div>
-      <div id="mobile-menu" class="md:hidden hidden bg-gray-700 p-4">
-        <a href="#about" class="block py-2 text-sm">ABOUT</a>
-        <a href="#service" class="block py-2 text-sm">SERVICE</a>
-        <a href="#plan" class="block py-2 text-sm">PLAN</a>
-        <a href="#message" class="block py-2 text-sm">MESSAGE</a>
-        <a href="#topix" class="block py-2 text-sm">TOPIX</a>
-        <a href="#faq" class="block py-2 text-sm">FAQ</a>
-        <a href="https://lin.ee/GOiu2ef" class="block py-2 mt-2 bg-orange-500 hover:bg-orange-600 text-white text-center rounded text-sm transition-colors duration-300">無料体験会に参加する ＋</a>
+      <div id="mobile-menu" class="md:hidden hidden bg-gray-700 p-4 mt-2 rounded-lg">
+        <a href="#about" class="block py-3 text-base border-b border-gray-600">ABOUT</a>
+        <a href="#service" class="block py-3 text-base border-b border-gray-600">SERVICE</a>
+        <a href="#plan" class="block py-3 text-base border-b border-gray-600">PLAN</a>
+        <a href="#message" class="block py-3 text-base border-b border-gray-600">MESSAGE</a>
+        <a href="#topix" class="block py-3 text-base border-b border-gray-600">TOPIX</a>
+        <a href="#faq" class="block py-3 text-base">FAQ</a>
+        <a href="https://lin.ee/GOiu2ef" class="block py-3 mt-4 bg-orange-500 hover:bg-orange-600 text-white text-center rounded-full text-base font-bold transition-colors duration-300">無料体験会に参加する ＋</a>
       </div>
     </header>
 
     <section class="relative w-full min-h-[500px] md:min-h-screen bg-black flex items-center justify-center overflow-hidden">
-      <video class="absolute inset-0 w-full h-full object-contain md:object-cover z-0" autoplay muted loop playsinline>
+      <video class="absolute inset-0 w-full h-full object-cover z-0" autoplay muted loop playsinline>
         <source src="/images/hero_sub.mp4" type="video/mp4" />
       </video>
       <div class="relative z-10 text-center px-4 text-white">
@@ -104,13 +158,13 @@
     </section>
 
     <section id="about" class="relative w-full min-h-[500px] md:min-h-screen overflow-hidden" data-aos="fade-up">
-      <img src="/images/hhh_1.jpg" alt="背景" class="absolute inset-0 w-full h-full object-contain md:object-cover z-0" />
+      <img src="/images/hhh_1.jpg" alt="背景" class="absolute inset-0 w-full h-full object-cover z-0" />
       <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center px-4 z-10">
-        <div class="max-w-3xl mx-auto text-center text-white">
+        <div class="max-w-3xl mx-auto text-center text-white py-12 md:py-0">
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">ABOUT</h2>
           <p class="text-base sm:text-lg md:text-xl leading-relaxed drop-shadow-lg">
-            One commitは筋トレ、ダイエットで悩むあなたをサポートします。<br />
-            SNSなどでいろんな情報が出回る中、私たちは過去のエビデンスと世界ランカーの兄弟が世界ランカーになる際に得たプロセスをもとに<br />
+            One commitは筋トレ、ダイエットで悩むあなたをサポートします。<br class="hidden md:block" />
+            SNSなどでいろんな情報が出回る中、私たちは過去のエビデンスと<br class="hidden md:block" />世界ランカーの兄弟が世界ランカーになる際に得たプロセスをもとに<br class="hidden md:block" />
             あなたにあった「あなただけのカリキュラム」を提案します。
           </p>
         </div>
@@ -120,7 +174,7 @@
     <section id="service" class="py-8 md:py-16 bg-gray-900" data-aos="fade-up">
       <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12 text-green-500">SERVICE</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300">
             <h3 class="text-xl font-bold mb-4 text-green-400">ダイエットサポート</h3>
             <p class="text-gray-300">食事・有酸素メニューの提供、目標に合わせた個別プランニング</p>
@@ -152,11 +206,11 @@
     <section id="plan" class="py-8 md:py-16 bg-gray-800" data-aos="fade-up">
       <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 text-white">料金プラン</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <!-- Standard Plan -->
-          <div class="bg-gray-900 rounded-lg shadow-xl p-8 border border-green-500">
-            <h3 class="text-2xl font-bold mb-4 text-green-400">スタンダードプラン</h3>
-            <div class="text-3xl font-bold mb-2 text-white"><span class="line-through text-gray-500">¥20,000</span> ¥10,000<span class="text-sm">/月</span></div>
+          <div class="bg-gray-900 rounded-lg shadow-xl p-6 md:p-8 border border-green-500">
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-green-400">スタンダードプラン</h3>
+            <div class="text-2xl md:text-3xl font-bold mb-2 text-white"><span class="line-through text-gray-500">¥20,000</span> ¥10,000<span class="text-sm">/月</span></div>
             <p class="text-gray-300 mb-6">リリース特価</p>
             <ul class="text-gray-300 space-y-2 mb-8">
               <li>✓ 月2回のオンライン面談</li>
@@ -167,11 +221,11 @@
             <a href="https://lin.ee/GOiu2ef" class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg transition-colors duration-300">無料相談を予約する</a>
           </div>
 
-          <!-- Premium Plan -->
-          <div class="bg-gray-900 rounded-lg shadow-xl p-8 border-2 border-yellow-500 transform scale-105">
-            <div class="absolute top-0 right-0 bg-yellow-500 text-black px-4 py-1 rounded-bl-lg">おすすめ</div>
-            <h3 class="text-2xl font-bold mb-4 text-yellow-400">プレミアムプラン</h3>
-            <div class="text-3xl font-bold mb-2 text-white"><span class="line-through text-gray-500">¥70,000</span> ¥50,000<span class="text-sm">/月</span></div>
+          <!-- Premium Plan - モバイルでも目立つように調整 -->
+          <div class="bg-gray-900 rounded-lg shadow-xl p-6 md:p-8 border-2 border-yellow-500 transform md:scale-105 relative">
+            <div class="absolute top-0 right-0 bg-yellow-500 text-black px-4 py-1 rounded-bl-lg font-bold">おすすめ</div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-yellow-400">プレミアムプラン</h3>
+            <div class="text-2xl md:text-3xl font-bold mb-2 text-white"><span class="line-through text-gray-500">¥70,000</span> ¥50,000<span class="text-sm">/月</span></div>
             <p class="text-gray-300 mb-6">リリース特価</p>
             <ul class="text-gray-300 space-y-2 mb-8">
               <li>✓ 週1回のオンライン面談</li>
@@ -181,13 +235,13 @@
               <li>✓ サプリメントアドバイス</li>
               <li>✓ 生活習慣改善プラン</li>
             </ul>
-            <a href="https://lin.ee/GOiu2ef" class="block text-center bg-yellow-500 hover:bg-yellow-600 text-black py-3 rounded-lg transition-colors duration-300">無料相談を予約する</a>
+            <a href="https://lin.ee/GOiu2ef" class="block text-center bg-yellow-500 hover:bg-yellow-600 text-black py-3 rounded-lg transition-colors duration-300 font-bold">無料相談を予約する</a>
           </div>
 
           <!-- Monitor Plan -->
-          <div class="bg-gray-900 rounded-lg shadow-xl p-8 border border-purple-500">
-            <h3 class="text-2xl font-bold mb-4 text-purple-400">モニタープラン</h3>
-            <div class="text-3xl font-bold mb-2 text-white">
+          <div class="bg-gray-900 rounded-lg shadow-xl p-6 md:p-8 border border-purple-500">
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-purple-400">モニタープラン</h3>
+            <div class="text-2xl md:text-3xl font-bold mb-2 text-white">
               <span class="text-purple-400">応相談</span>
             </div>
             <p class="text-gray-300 mb-6">期間限定募集</p>
@@ -205,10 +259,10 @@
       </div>
     </section>
 
-    <section id="message" class="relative w-full min-h-[500px] md:min-h-screen overflow-hidden" data-aos="fade-up">
-      <img src="/images/hhh_2.jpg" alt="メッセージ背景" class="absolute inset-0 w-full h-full object-contain md:object-cover z-0" />
+    <section id="message" class="relative w-full min-h-[400px] md:min-h-screen overflow-hidden" data-aos="fade-up">
+      <img src="/images/hhh_2.jpg" alt="メッセージ背景" class="absolute inset-0 w-full h-full object-cover z-0" />
       <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4 z-10">
-        <div class="text-center">
+        <div class="text-center py-12 md:py-0">
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-lg">筋トレ、ダイエットを楽しく、あなたらしく</h2>
         </div>
       </div>
@@ -218,10 +272,10 @@
     <section id="instructors" class="py-8 md:py-16 bg-gray-900" data-aos="fade-up">
       <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white mb-8 md:mb-12">講師紹介</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div class="bg-gray-800 rounded-lg shadow-xl hover:shadow-2xl transition-shadow p-6">
             <img src="/images/enokida_kazuto.jpg" alt="榎田一斗の写真" class="w-full h-[250px] md:h-[300px] object-cover rounded-t-lg">
-            <h3 class="text-2xl font-bold text-white mb-4 mt-4">榎田 一斗</h3>
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-4 mt-4">榎田 一斗</h3>
             <div class="text-gray-300 space-y-4">
               <div>
                 <h4 class="font-bold text-green-400 mb-2">【過去の実績】</h4>
@@ -247,7 +301,7 @@
           </div>
           <div class="bg-gray-800 rounded-lg shadow-xl hover:shadow-2xl transition-shadow p-6">
             <img src="/images/enokida_hiroto.jpg" alt="榎田大人の写真" class="w-full h-[250px] md:h-[300px] object-cover rounded-t-lg">
-            <h3 class="text-2xl font-bold text-white mb-4 mt-4">榎田 大人</h3>
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-4 mt-4">榎田 大人</h3>
             <div class="text-gray-300 space-y-4">
               <div>
                 <h4 class="font-bold text-green-400 mb-2">【実績】</h4>
@@ -278,9 +332,9 @@
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-white">TOPIX</h2>
         <div class="max-w-4xl mx-auto">
           <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="md:flex">
+            <div class="md:flex flex-col md:flex-row">
               <div class="md:w-1/3">
-                <img src="/images/topix_01.png" alt="TOPIX 1の画像" class="w-full h-[200px] md:h-[250px] object-cover">
+                <img src="/images/topix_01.png" alt="TOPIX 1の画像" class="w-full h-[200px] md:h-full object-cover">
               </div>
               <div class="md:w-2/3 p-6">
                 <p class="text-gray-400 text-sm mb-2">2025.04.16</p>
@@ -304,84 +358,43 @@
     <section id="faq" class="py-8 md:py-16 bg-gray-900 text-white" data-aos="fade-up">
       <div class="max-w-5xl mx-auto px-4">
         <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12">よくある質問</h2>
-        <div class="space-y-6">
+        <div class="space-y-4 md:space-y-6">
           <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-            <h3 class="text-xl font-bold mb-2">Q1. トレーニング経験がなくても大丈夫ですか？</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Q1. トレーニング経験がなくても大丈夫ですか？</h3>
             <p>はい、初心者の方でも安心してご参加いただけます。お客様の経験レベルに合わせて、基礎から丁寧にサポートいたします。</p>
           </div>
           <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-            <h3 class="text-xl font-bold mb-2">Q2. 食事制限は厳しいですか？</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Q2. 食事制限は厳しいですか？</h3>
             <p>極端な制限は行いません。お客様の生活リズムや好みに合わせて、無理のない食事プランを提案させていただきます。</p>
           </div>
           <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-            <h3 class="text-xl font-bold mb-2">Q3. 途中解約は可能ですか？</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Q3. 途中解約は可能ですか？</h3>
             <p>はい、可能です。ただし、返金に関しては各プランの規定に従って対応させていただきます。</p>
           </div>
           <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-            <h3 class="text-xl font-bold mb-2">Q4. オンラインでの指導で効果は出ますか？</h3>
-            <p>はい。世界ランカーの経験とノウハウを活かし、オンラインでも効果的なサポートを提供しています。</p>
-          </div>
-          <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-            <h3 class="text-xl font-bold mb-2">Q5. 必要な器具はありますか？</h3>
-            <p>基本的な自重トレーニングから始めることができます。必要に応じて、ご自宅でできるトレーニング方法をご提案します。</p>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Q4. オンラインでの指導で効果は出ますか？</h3>
+            <p>はい。世界ランカーの経験とノウハウを活かし、オンラインでも効果的なサポートを提供しています。トレーニングメニューや食事管理、モチベーションの維持など、オンラインでも丁寧にサポートいたします。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-8 md:py-12 bg-gray-900 text-white" data-aos="fade-up">
-      <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <a href="/tokushoho.html" class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-          <h3 class="text-xl font-bold mb-2">特定商取引法</h3>
-          <p class="text-sm">当サロンの販売条件に関する法的表記はこちら</p>
-        </a>
-        <a href="/privacy.html" class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-          <h3 class="text-xl font-bold mb-2">プライバシーポリシー</h3>
-          <p class="text-sm">個人情報の取り扱い方針について明記しています</p>
-        </a>
-        <a href="/terms.html" class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
-          <h3 class="text-xl font-bold mb-2">利用規約</h3>
-          <p class="text-sm">本サービスを利用する際のルールをご確認ください</p>
-        </a>
-      </div>
-    </section>
-
-    <footer class="bg-gray-900 text-gray-400 py-8 md:py-12">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-8">
-          <div>
-            <h3 class="text-white text-lg font-bold mb-4">所在地</h3>
-            <p>〒880-0834 宮崎県宮崎市新別府町土田574-1</p>
-          </div>
-          <div>
-            <h3 class="text-white text-lg font-bold mb-4">トレーナー</h3>
-            <p>榎田一斗、榎田大人、黒木瑞樹</p>
-          </div>
-          <div>
-            <h3 class="text-white text-lg font-bold mb-4">SNSリンク</h3>
-            <div class="flex flex-col space-y-2">
-              <a href="https://lin.ee/GOiu2ef" class="hover:text-white flex items-center">
-                <i class="fab fa-line w-6"></i> LINE
-              </a>
-              <a href="https://www.instagram.com/kazuto_fitnessgym" class="hover:text-white flex items-center">
-                <i class="fab fa-instagram w-6"></i> Instagram
-              </a>
-              <a href="https://www.youtube.com/@Onecommit" class="hover:text-white flex items-center">
-                <i class="fab fa-youtube w-6"></i> YouTube
-              </a>
-              <a href="https://www.tiktok.com/@one.commit?_t=ZS-8vQp9jZFCOw&_r=1" class="hover:text-white flex items-center">
-                <i class="fab fa-tiktok w-6"></i> TikTok
-              </a>
-              <a href="https://x.com/one_commit?s=21" class="hover:text-white flex items-center">
-                <i class="fab fa-twitter w-6"></i> X
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="text-center pt-8 border-t border-gray-800">
-          <p>&copy; 2025 One commit. All rights reserved.</p>
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-12">
+      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm">&copy; 2025 One Commit. All rights reserved.</p>
+        <div class="mt-4 md:mt-0 flex space-x-4">
+          <a href="https://instagram.com/kazuto_fitnessgym" class="hover:text-white" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://instagram.com/hirotoenokida" class="hover:text-white" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
     </footer>
+
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
