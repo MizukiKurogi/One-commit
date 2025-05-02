@@ -170,21 +170,23 @@
         <img 
           src="/images/hhh_1.jpg" 
           alt="背景" 
-          class="absolute inset-0 w-full h-full object-cover" <!-- object-containからobject-coverに変更 -->
+          class="absolute inset-0 w-full h-full object-cover" 
         />
         <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center z-10 px-4 md:px-6">
-          <div class="text-center text-white space-y-2 sm:space-y-3 md:space-y-4 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl"> <!-- スペーシングとmax-widthを調整 -->
-            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+          <div class="text-center text-white space-y-2 md:space-y-6 max-w-[90%] md:max-w-3xl">
+            <!-- PC版では大きく、モバイルでは小さく -->
+            <h2 class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-yellow-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
               ABOUT
             </h2>
-            <p class="text-sm sm:text-base md:text-lg drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+            <!-- モバイルは小さく、PCでは大きく -->
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
               One commitは筋トレ、ダイエットで悩むあなたをサポートします。
             </p>
-            <p class="text-sm sm:text-base md:text-lg drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] px-2">
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
               SNSなどでいろんな情報が出回る中、私たちは過去のエビデンスと<br class="hidden md:block" />
               世界ランカーの兄弟が世界ランカーになる際に得たプロセスをもとに
             </p>
-            <p class="text-sm sm:text-base md:text-lg drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+            <p class="text-xs sm:text-sm md:text-lg lg:text-xl drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
               あなたにあった「あなただけのカリキュラム」を提案します。
             </p>
           </div>
